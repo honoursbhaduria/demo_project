@@ -8,15 +8,20 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 
-    # remember section of the docs :--  
 
+        # Documentation reference:
+
+        # Specify fields to include or exclude in the serializer:
         # fields = ['name', 'age', 'email', 'phone', 'address']
         # exclude = ['created_at', 'updated_at']
+
+        # Use extra_kwargs to enforce additional (mandatory fields):
         # extra_kwargs = {
         #     'name': {'required': True},
         #     'age': {'required': True},
-        #     'email': {'required': True},      }
-        #   USE OF THE  -------extra_kwargs ---------the name, age, and email fields from the student model
-        #   to be required when using the serializer (e.g., in API POST requests). 
-        #   Even if they are not marked as blank=False or null=False in the model, 
-        #   the serializer will treat them as mandatory.
+        #     'email': {'required': True},
+        # }
+
+        # The extra_kwargs ensure that the 'name', 'age', and 'email' fields
+        # are mandatory when using the serializer (e.g., in API POST requests),
+        # even if they are not marked as blank=False or null=False in the model.
