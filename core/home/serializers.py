@@ -7,6 +7,55 @@ class StudentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+    def validate(self, data):
+        if data['age'] < 0:
+            raise serializers.ValidationError("Age cannot be negative")
+        if data['name'] == "":
+            raise serializers.ValidationError("Name cannot be empty")
+        if data['email'] == "":
+            raise serializers.ValidationError("Email cannot be empty")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         # Documentation reference:
