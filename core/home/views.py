@@ -1,8 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import *  # Ensure the `Student` model exists in `models.py`
-from .serializers import *  # Ensure the `StudentSerializer` exists in `serializers.py`
-
+from .models import *  
+from .serializers import * 
 
 @api_view(['GET'])
 def home(request):
@@ -36,7 +35,7 @@ def post_student(request):
 @api_view(['PUT'])
 def update_student(request, id):
     try:
-        student_obj = Student.objects.get(id=id)  # Ensure `id` is passed correctly in the URL
+        student_obj = Student.objects.get(id=id)  
 
         serializer = StudentSerializer(student_obj, data=request.data)
 
@@ -74,3 +73,5 @@ def delete_student(request, id):
             'status': 404,
             'message': 'Invalid id / Student not found'
         })
+
+
