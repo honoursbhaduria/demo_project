@@ -7,3 +7,5 @@ urlpatterns = [
    path('student/', post_student, name='student'),
    path('update-student/<int:id>/', update_student, name='update_student'),
 ]
+
+

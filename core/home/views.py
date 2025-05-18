@@ -59,3 +59,18 @@ def update_student(request, id):
             'message': "Student not found / invalid ID"
         })
 
+
+@api_view(['DELETE'])
+def delete_student(request, id):
+    try:
+        student_obj = Student.objects.get(id=id)
+        student_obj.delete()
+        return Response({
+            'status': 200,
+            'message': 'Student deleted successfully'
+        })
+    except Student.DoesNotExist:
+        return Response({
+            'status': 404,
+            'message': 'Invalid id / Student not found'
+        })
